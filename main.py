@@ -10,7 +10,7 @@ class Expense:
         self.note = note
 
     def __str__(self):
-        return f"{self.date} | {self.category} | ${self.amount:.2f} | {self.note}"
+        return f"{self.date} | {self.category} | Rs: {self.amount:.2f} | {self.note}"
 
 # ----- ExpenseTracker Class -----
 class ExpenseTracker:
@@ -56,7 +56,7 @@ st.subheader("📋 Expenses List")
 if st.session_state.tracker.expenses:
     for e in st.session_state.tracker.expenses:
         st.write(str(e))
-    st.markdown(f"**Total Spent:** ${st.session_state.tracker.get_total():.2f}")
+    st.markdown(f"**Total Spent:** Rs: {st.session_state.tracker.get_total():.2f}")
 else:
     st.info("No expenses added yet.")
 
